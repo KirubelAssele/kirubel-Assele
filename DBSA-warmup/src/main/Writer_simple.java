@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class Writer_simple {
+public class Writer_simple implements Writer {
 	public int MIN = Integer.MIN_VALUE;
 	public int MAX = Integer.MAX_VALUE;
 	private String filename;

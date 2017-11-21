@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class Writer_buffered {
+public class Writer_buffered implements Writer {
 	public int MIN = Integer.MIN_VALUE;
 	public int MAX = Integer.MAX_VALUE;
 	private FileOutputStream os = null;

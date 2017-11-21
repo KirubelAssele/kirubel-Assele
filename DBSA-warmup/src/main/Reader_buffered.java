@@ -7,7 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class Reader_buffered {
+public class Reader_buffered implements Reader {
 	public int MIN = Integer.MIN_VALUE;
 	public int MAX = Integer.MAX_VALUE;
 	private FileInputStream is = null;
