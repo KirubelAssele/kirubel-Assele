@@ -3,13 +3,17 @@ import main.Reader_buffered;
 import main.Reader_simple;
 import main.Writer;
 import main.Writer_buffered;
+import main.Writer_mapped;
 import main.Writer_simple;
+
+import java.io.EOFException;
+
 import junit.framework.TestCase;
 
 
 public class basic_tests extends TestCase {
 
-	public static void test_simple(){
+	public static void test_simple() throws EOFException{
 		int min = Integer.MIN_VALUE;
 		int max = Integer.MAX_VALUE;
 		Writer w = new Writer_simple("newfile.data");
@@ -30,7 +34,7 @@ public class basic_tests extends TestCase {
 	}
 	
 
-	public static void test_buffered(){
+	public static void test_buffered() throws EOFException{
 		int min = Integer.MIN_VALUE;
 		int max = Integer.MAX_VALUE;
 		Writer w = new Writer_buffered("newfile.data");
@@ -50,7 +54,7 @@ public class basic_tests extends TestCase {
 		r2.close();
 	}
 
-	public static void test_buffered_size_given(){
+	public static void test_buffered_size_given() throws EOFException{
 		int min = Integer.MIN_VALUE;
 		int max = Integer.MAX_VALUE;
 		Writer w = new Writer_buffered("newfile.data", 8);

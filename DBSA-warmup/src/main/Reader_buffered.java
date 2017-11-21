@@ -2,6 +2,7 @@ package main;
 
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -44,7 +45,7 @@ public class Reader_buffered implements Reader {
 		}
 	}
 
-	public int read(){
+	public int read() throws EOFException{
 		int value = 0;
 		if(ds == null){
 			try {
@@ -63,6 +64,9 @@ public class Reader_buffered implements Reader {
 		}
 		try{
 			value = ds.readInt();
+		}
+		catch (java.io.EOFException e){
+			throw e;
 		}
 		catch (IOException e) {
 			System.err.println("Could not read integer from file! "+filename);
