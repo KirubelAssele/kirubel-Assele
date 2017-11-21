@@ -55,14 +55,14 @@ public class Writer_buffered implements Writer {
 			} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 				System.err.println("File not found! "+filename);
-			e.printStackTrace();
+				e.printStackTrace();
 			} 
 		}
 		try{
 			ds.writeInt(value);
 		}
 		catch (IOException e) {
-			System.err.println("Could not read integer from file! "+filename);
+			System.err.println("Could not write integer to file "+filename);
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
