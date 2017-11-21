@@ -1,5 +1,6 @@
 import main.Reader;
 import main.Reader_buffered;
+import main.Reader_mapped;
 import main.Reader_simple;
 import main.Writer;
 import main.Writer_buffered;
