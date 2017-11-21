@@ -12,7 +12,7 @@ public class Writer_mapped implements Writer {
 	private String filename;
 	int buffersize=8000;
 	private MappedByteBuffer mbb = null;
-	RandomAccessFile ra = null;
+	private RandomAccessFile ra = null;
 
 	public Writer_mapped(String filename, int buffer){
 		this.filename = filename;
