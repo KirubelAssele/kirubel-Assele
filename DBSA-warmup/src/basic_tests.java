@@ -17,7 +17,7 @@ public class basic_tests extends TestCase {
 	public static void test_simple() throws EOFException{
 		int min = Integer.MIN_VALUE;
 		int max = Integer.MAX_VALUE;
-		Writer w = new Writer_simple("newfile1.data");
+		Writer w = new Writer_simple("newfile1.txt");
 		w.write(16);
 		w.write(128);
 		w.write(-13);
@@ -25,7 +25,7 @@ public class basic_tests extends TestCase {
 		w.write(max);
 		w.close();
 		
-		Reader r2 = new Reader_simple("newfile1.data");
+		Reader r2 = new Reader_simple("newfile1.txt");
 		assertTrue(r2.read()==16);
 		assertTrue(r2.read()==128);
 		assertTrue(r2.read()==-13);
@@ -96,4 +96,31 @@ public class basic_tests extends TestCase {
 		r2.close();
 	}
 	
+	
+	
+	public static void test_data() throws EOFException{
+		read_this("increasing_data.txt");
+		read_this("not_increasing_data.txt");
+		read_this("increasing_from_min.txt");
+		read_this("increasing_to_max.txt");
+		
+	}
+	
+	private static void read_this(String filename){
+		Reader r2 = new Reader_simple(filename);
+		try{
+			while(true){
+				int new_int = r2.read();
+				System.out.println(new_int);
+				//your code here
+			}
+		}
+		catch (EOFException e){
+			System.out.println("End of file!");
+			//end of file exception	
+		}
+		
+		r2.close();
+	}	
+
 }
