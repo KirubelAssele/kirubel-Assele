@@ -1,0 +1,167 @@
+To share your work with others, you need to put it online.
+We are obligated to use a tool called Git for that. (We will not accept using dropbox or download files to facebook or by email...)
+
+To participate to this project, you have to know at least the basics of Git.
+Otherwise, you won't be able to push your changes to the online repository and the professor won't be able to see your participation.
+
+
+Here is a short version of the .git documentation.
+If you prefer, you can read it directly here: 
+https://git-scm.com/book/en/v2
+
+(it has images and is very understandible. I'm just highlighting important parts.)
+
+
+About Git:
+https://git-scm.com/book/en/v2/Getting-Started-Git-Basics
+
+Git is a versionning manager: it can hold different versions of a project (to go back if there was a problem or to have several versions).
+Git only saves the Differences with the last version of the project you saved.
+You save most of it locally (commit) before uploading it. 
+On your computer you have your Working Directory where your code is.
+Then you have a .git folder where Git stores all the versions informations (Repository).
+Then you have the online git Repository which is a copy of the .git files you have on your computer.
+With Git, you can see who participated to the project because each modification is named
+(because Git only saves the differences).
+You can even see what differences they made exactly.
+
+There are three things to do then:
+
+-Modify files (work on the project)
+
+-Add modified files to the list of modified files in git ("add")
+
+-Save the differences in the .git ("commit")
+
+You can make several commits on your computer before "pushing" it on the online repository.
+
+
+Command line:
+https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line
+
+Git is a tool that works mostly in command lines. But there is a Graphical version (Git GUI)
+You should learn how to use the terminal to get the most of .git.
+
+Installing Git:
+https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+You are using Windows I think? Go to 
+http://git-scm.com/download/win 
+and download the installer. Install Git on your computer.
+Allow Git to appear in your computer's PATH variable.
+
+If you want to use a GUI you can download one: https://git-scm.com/downloads/guis
+
+Look up for tutorials online to learn how touse them. I will focus on the terminal commands.
+
+Setup Git:
+https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
+
+The first thing that you have to do is tell Git your (ULB or usual) email and username.
+Type those in a terminal (open anywhere):
+
+git config --global user.name "John Doe"
+
+git config --global user.email johndoe@example.com
+
+
+Getting help:
+https://git-scm.com/book/en/v2/Getting-Started-Getting-Help
+
+There are commands that gives you a lot of infos:
+
+git help <verb>
+
+man git-<verb>
+
+There are commands that gives you less infos but are more readable
+For example if you want infos on add, do
+
+git add -h
+
+
+Getting a .git repository:
+https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository
+
+First, with your terminal, go in the folder where you want to download the project repository.
+Either by doing Shift+RightClick and [Open terminal here] in the folder you want, 
+or go to the folder you wand by doing cd commands in the terminal (Change Directory)
+You type "cd" then the name of the local folder you want to go in, or ".." to go up a level
+To know what folder are there, type "dir" in your terminal on Windows ("ls" on linux)
+You can also press the "Tabulation" key on your keyboard ->| to autocomplete a folder name.
+Press Tab several times to cycle trough the different possible completions.
+
+Example:
+
+cd c:/users/username/desktop/my_project
+
+There if you want to create a new repository you'd do "git init". However we don't want that.
+We want to copy an existing repository. So we do:
+
+git clone http://kassele@wit-projects.ulb.ac.be/rhodecode/INFO-H-417/2017-2018-1/project-akirbaes-defilaef-kassele
+
+I got that link from out repository http://wit-projects.ulb.ac.be/rhodecode/INFO-H-417/2017-2018-1/project-akirbaes-defilaef-kassele
+Please visit it.
+Maybe you will be asked for a password. It is your university ULB NetID.
+
+Once you cloned the repository, do this to enter it:
+
+cd project-akirbaes-defilaef-kassele
+
+You can do "cd proj" then press Tabulation to complete the rest
+If you enabled "show hidden files" on your computer, you should see a .git folder.
+
+Recording changes:
+https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository
+
+I think you should read this one in the book, there are a lot of informations.
+
+When you modify a file, you must add it to git's tracked files then commit it.
+To know what files where modified, once in the repository do 
+
+git status
+
+It will give you a slit of the files that have been modified and their path.
+
+If there are file you don't want .git to track, add them in a .gitignore text file.
+Tutorial on .gitignore: https://www.atlassian.com/git/tutorials/gitignore
+Examples: https://github.com/github/gitignore 
+
+You can do "git diff [filename]" to see what you modified in the file.
+Do just "git diff" for a general overview. "git diff --cached" to see even in the files you added.
+
+To add a modified file to the next commit, do:
+
+git add
+
+Do "git status" once more to verify that it was added. You can also do "git status -s" for the short version.
+"git log" to see everything you've done.
+There is a shortcut "git add -a" to add all changed files, but you should read about what it does before using it. (it adds everything in red, so you should check .gitignore before)
+
+To save the changes on your computer, do
+
+git commit -m "Here you insert the commit message"
+
+Then, you can upload it on the site with
+
+git push
+
+Once you did push, you should see your commit appear on 
+http://wit-projects.ulb.ac.be/rhodecode/INFO-H-417/2017-2018-1/project-akirbaes-defilaef-kassele
+
+Usually before doing a push, you need to make your repository up-to-date with the online repository.
+You do this with
+
+git pull
+
+Always to a git pull before doing a git push so that you have less conflicts.
+If two people modify the same file at the same moment, it is a conflict.
+You have to resolve it by doing a git merge. Most of the time it is automatic, but sometimes you have to edit the file to contain the changes of both people and verify that it is still running before merging.
+
+There are many more commands to learn so this chapter is one you should read for yourself.
+Note: "git rm" deletes the original file if present. 
+
+If you think you made a mistake and wants a fresh repository, go somewhere else and redo the git clone command.
+
+There are also branches "Master" etc. which are just different versions of the project, and labels and tags like "Origin" which are special names for one version of the project.
+It is an important part of .git when you have bigger teams but I'm not sure you'll need it here.

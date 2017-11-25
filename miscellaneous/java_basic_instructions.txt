@@ -1,0 +1,68 @@
+Since there were issues with using Java, here are simple instructions on how to install and use it,
+plus reference links.
+
+---About Java
+Compiling is turning your source code into instruction in machine language so that the computer can execute it.
+Java is a language that once compiled produces an executable that is coded for a virtual machine.
+Contrary to C/C++, compiled Java code will not work directly on a computer. It will need to be interpreted by a virtual machine.
+This makes it so that you only need one compiled version that can work on every Java Virtual Machine,
+contrary to C/C++ where you have to compile a different version for every physical machine.
+
+---Install Java
+To program in Java you will need two things:
+The Java Runtime Environment or JRE, and the Java Development Kit or JDK
+You can install both from the Oracle website:
+If your windows is 64 bits
+http://www.oracle.com/technetwork/java/javase/downloads/jdk9-downloads-3848520.html
+
+Otherwise (32 bits, x86)
+http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+
+---Program in Java
+You can learn how to write a simple Hello World program and compile it with this page:
+https://docs.oracle.com/javase/tutorial/getStarted/cupojava/win32.html
+
+You can use any text editor to program in Java, but I would recommend Notepad++ to do this exercise.
+If you program in a text editor, you must use an external program to compile and launch your code.
+On Windows, you can do SHIFT+RIGHT-CLICK in any FOLDER to bring up the special menu option "OPEN A CONSOLE/TERMINAL/SHELL/COMMAND WINDOW HERE"
+
+Here are some basic command line tips:
+https://www.digitalcitizen.life/command-prompt-how-use-basic-commands
+https://www.digitalcitizen.life/command-prompt-how-use-basic-commands?page=1
+
+---Advanced:  Install an IDE
+NetBeans, Eclipse are what we call IDE (Integrated Development Environment)
+You can perfectly program only using a text editor, but sometimes you need a more advanced tool: this is the IDE.
+An IDE is a heavier program that does much more than allow you to type text: it will color it, check for syntax errors, 
+help you manage your files, give you documentation. You can also do debugging trough it!
+Installing an IDE and learning to use it can take some time. But there is a lot of free documentation online on how to do it.
+
+
+______________
+
+Once you are setup to start programming, I will ask you to write a program to verify that the numbers in a file are sorted
+(each number is bigger than the previous one)
+
+For this, you will:
+1)Import Reader_simple
+2)Open "increasing_data.txt" using Reader_simple (download it from the repository)
+3)Read every integer in "increasing_data.txt" and verify that it is sorted (download it from the repository)
+4)Make a function that will return true or false depending on if the file is sorted or not
+5)Try it on "not_increasing_data.txt" ! It should return false.
+
+Notes: 
+-To verify if a list is sorted, verify that each new number is bigger _or equal_ to the previous one
+-To read a file, we loop until there is nothing to read. Here is the code:
+	try{
+		while(true){
+			old_int = new_int;
+			new_int = my_reader.read();
+			//your code here
+		}
+	}
+	catch (EOFException e){
+		//end of file exception	
+	}
+	
+If you have questions (even dumb ones!), ask me!
+It's better to ask than to get stuck and waste time.
